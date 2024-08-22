@@ -11,6 +11,10 @@ print(f" Your name is, {name}, and your school name is :{school}")
 floatvariable = 3.486858
 print(f"Your name is,{name}, and your floatvariable is,{floatvariable}")
 
+rds = float(input("Enter RDS:"))
+area= 3.14 * (rds ** 2)
+print(f"You RDS is,{rds}, and your area is,{area}")
+
 '''
 intvariable = 3
 floatvariable = 3.14
