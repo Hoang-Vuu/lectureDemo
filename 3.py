@@ -1,7 +1,7 @@
 #1
 length = float(input("Enter length of zander in cm:"))
-if length <=42:
-    print("You should release the fish back into the lake and the below size limit was 42 cm")
+if length <42:
+    print(f"You should release the fish back into the lake and the fish was {42 - length} cm below the size limit")
 else:
     print("Available")
 
@@ -27,26 +27,24 @@ if gender == "male":
 if gender == "female":
     value1=float(input("Enter your hemoglobin value:"))
 
-if (gender == "male" and 134 <= value <= 167):
+if gender == "male" and 134 <= value <= 167:
     print("normal")
-elif  (gender == "male" and value > 167):
+elif  gender == "male" and value > 167:
     print("high")
-elif  (gender == "male" and value < 134):
+elif  gender == "male" and value < 134:
     print("low")
 
-if (gender=="female" and 117<= value1 <= 155):
+if gender=="female" and 117<= value1<= 155:
     print("normal")
-elif (gender=="female" and value > 155):
+elif gender=="female" and value1 > 155:
     print("high")
-elif (gender=="female" and value < 117):
+elif gender=="female" and value1 < 117:
     print("low")
 
 
 #4
 year= int(input("Enter year:"))
-if year % 4 == 0 and year % 100 != 0 or year % 400 == 0:
-    print("It is a leap year")
-elif year % 100 == 0 and year % 400 == 0:
+if year % 4 == 0 or(year % 100 == 0 and year % 400 == 0):
     print("It is a leap year")
 else:
     print("It is a regular year")
