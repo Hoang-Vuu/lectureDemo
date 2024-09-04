@@ -1,6 +1,3 @@
-
-'''
-
 #1
 first=3
 while first<=1000:
@@ -16,33 +13,42 @@ while inches >=0:
     if inches<=0:
         break
 
-'''
+
 #3
-num = int(input("Enter a number: "))
+largest = 0
+smallest = 0
+
 while True:
-        if num == "":
-            break
-        largest = max(num)
-        smallest = min(num)
-        print(f"The largest number is {largest}")
-        print(f"The smallest number is {smallest}")
+    num = input("Enter a number: ")
+    if num =="":
+        break
+    if largest == 0 or num >= largest:
+        largest = num
+    if smallest == 0 or num <= smallest:
+        smallest = num
+
+print("Maximum is", largest)
+print("Minimum is", smallest)
 
 
-'''
+
+
+
 #4
 import random
 num = random.randint(1,10)
-guess = int(input("Guess a number between 1 and 10: "))
+guess = int(input("Guess a number:"))
+tried = 1
 while guess != num:
     if guess > num:
-        print("High")
-        guess= int(input("Again: "))
+        print("Your guess is high")
+        guess = int(input(f"You tried {tried} times, guess again:"))
     elif guess < num:
-        print("low")
-        guess= int(input("Again: "))
+        print("Your guess is low")
+        guess = int(input(f"You tried {tried} times, guess again:"))
+    tried = tried + 1
 else:
-    guess == num
-    print("Correct")
+        print("Your guess is correct")
 
 
 #5
@@ -59,9 +65,16 @@ while True:
     else:
         print("access denied")
         break
-'''
 
 
-
-
-
+#6
+import random
+N = int(input("Enter the number of points: "))
+n = 0
+x = random.uniform(-1,1)
+y = random.uniform(-1,1)
+while n<=N:
+    if x**2+y**2<=1:
+        n+=1
+pi=4*n/N
+print(f"The value of pi is {pi}")
