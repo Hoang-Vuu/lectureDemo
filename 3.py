@@ -1,50 +1,41 @@
-#1
-length = float(input("Enter length of zander in cm:"))
-if length <42:
-    print(f"You should release the fish back into the lake and the fish was {42 - length} cm below the size limit")
-else:
-    print("Available")
+class Person:
+    def __init__(self, name, age, gender):
+        self.name = name
+        self.age = age
+        self.gender = gender
+
+    def introduce(self):
+        return (f"I am {self.name}, {self.age} years old, {self.gender}")
+
+class Member(Person):
+    def __init__(self, name, age, gender, membershipid):
+        self.membership = membershipid
+        super().__init__(name, age, gender)
+
+    def introduce(self):
+        return (f"I am {self.name}, {self.age} years old, {self.gender}, with membership ID {self.membershipid}.")
+
+class Author(Person):
+    def __init__(self, name, age, gender, books_written):
+        super().__init__(name, age, gender)
+        self.books_written = books_written
+
+    def list_books(self):
+        return(f"Books written:{self.books_written}")
 
 
-#2
-cabin = input("Enter cabin:")
-if cabin == "LUX":
-    print("Upper cabin with a balcony")
-elif cabin == "A":
-    print("Above the car deck, equipped with a window.")
-elif cabin == "B":
-    print("Windowless cabin above the car deck")
-elif cabin == "C":
-    print("windowless cabin below the car deck")
-else:
-    print("Invalid cabin class")
+class AuthorMember(Member, Author):
+    def __init__(self, name, age, gender, membershipid, books_written):
+        Person.__init__(self, name, age, gender)
+        self.books_written = books_written
+        self.membershipid = membershipid
+    def introduce(self):
+        return (f"I am {self.name}, {self.age} years old, {self.gender}, with membership ID {self.membershipid}.")
 
-
-#3
-gender= input("Enter your gender:")
-if gender == "male":
-    value = float(input("Enter your hemoglobin value:"))
-if gender == "female":
-    value1=float(input("Enter your hemoglobin value:"))
-
-if gender == "male" and 134 <= value <= 167:
-    print("normal")
-elif  gender == "male" and value > 167:
-    print("high")
-elif  gender == "male" and value < 134:
-    print("low")
-
-if gender=="female" and 117<= value1<= 155:
-    print("normal")
-elif gender=="female" and value1 > 155:
-    print("high")
-elif gender=="female" and value1 < 117:
-    print("low")
-
-
-#4
-year= int(input("Enter year:"))
-if year % 4 == 0 or(year % 100 == 0 and year % 400 == 0):
-    print("It is a leap year")
-else:
-    print("It is a regular year")
+Library_members=[
+    AuthorMember("H", 23, "female","55757","hello"),
+    AuthorMember("B", 45, "male", "668686","hi"),
+    AuthorMember("K", 40, "female", "193939","chao")
+]
+for member in Library_members:
+    print(member.introduce())
